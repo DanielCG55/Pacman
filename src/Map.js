@@ -1,7 +1,6 @@
 const converAngletoRad = (angle) => (angle * Math.PI) / 180;
 
-let pacmanMap =
-`WWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+let pacmanMap = `WWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 W............WWW............W
 W.WWWW.WWWWW.WWW.WWWWW.WWWW.W
 W*WWWW.WWWWW.WWW.WWWWW.WWWW*W
@@ -34,7 +33,7 @@ W...........................W
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWW`
   .split("\n")
   .map((row) => row.split(""));
-const totalRatio = Math.floor(1024/ pacmanMap.length);
+const totalRatio = Math.floor(1024 / pacmanMap.length);
 
 class Map {
   draw(ctx) {
@@ -44,28 +43,39 @@ class Map {
 
         ctx.beginPath();
         if (pos === "W") {
-          ctx.fillStyle = "#ffafcc";
+          ctx.fillStyle = "#374473";
           ctx.fillRect(x * totalRatio, y * totalRatio, totalRatio, totalRatio);
         }
-        if (pos === '.') {
-          ctx.fillStyle = '#bde0fe';
-          ctx.arc(x * totalRatio + totalRatio / 2, y * totalRatio + totalRatio / 2, 5, 0, converAngletoRad(360));
+        if (pos === ".") {
+          ctx.fillStyle = "#cb0000";
+          ctx.arc(
+            x * totalRatio + totalRatio / 2,
+            y * totalRatio + totalRatio / 2,
+            5,
+            0,
+            converAngletoRad(360)
+          );
           ctx.fill();
-         }
-         if (pos === '-') {
-          ctx.fillStyle = '#fefae0';
+        }
+        if (pos === "-") {
+          ctx.fillStyle = "#ff6fc4";
           ctx.fillRect(x * totalRatio, y * totalRatio, totalRatio, totalRatio);
-         }
-         if (pos === 'o') {
-          ctx.fillStyle = '#8ecae6';
-          ctx
-          .fillRect(x * totalRatio, y * totalRatio, totalRatio, totalRatio);
-      }
-      if (pos === '*') {
-        ctx.fillStyle = '#e63946';
-        ctx.arc(x * totalRatio + totalRatio / 2, y * totalRatio + totalRatio / 2, 5, 0, converAngletoRad(360));
-        ctx.fill();
-    }
+        }
+        if (pos === "o") {
+          ctx.fillStyle = "#ff8d50";
+          ctx.fillRect(x * totalRatio, y * totalRatio, totalRatio, totalRatio);
+        }
+        if (pos === "*") {
+          ctx.fillStyle = "#cfa819";
+          ctx.arc(
+            x * totalRatio + totalRatio / 2,
+            y * totalRatio + totalRatio / 2,
+            5,
+            0,
+            converAngletoRad(360)
+          );
+          ctx.fill();
+        }
         ctx.closePath();
       }
     }
@@ -73,4 +83,3 @@ class Map {
   update() {}
   keyboard_event(key) {}
 }
-
